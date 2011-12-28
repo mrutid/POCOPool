@@ -1,4 +1,5 @@
 Makefile
-nbproject
-dist
-build
+nbproject/
+dist/
+build/
+.dep.inc

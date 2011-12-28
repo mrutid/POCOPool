@@ -9,16 +9,16 @@
 
 #include "Worker.h"
 #include "Task.h"
-template <class MyTask>
-MyTask Worker<MyTask>::take_new_job(){
-	MyTask task = job_pool.pop();
+template <class MyTypeData>
+Task<MyTypeData> Worker<MyTypeData>::take_new_job(){
+	Task<MyTypeData> task = job_pool.pop();
 	return task;
 };
 
-template <class MyTask>
-void Worker<MyTask>::run(){
+template <class MyTypeData>
+void Worker<MyTypeData>::run(){
     while (!job_pool.empty()){
-        MyTask task = take_new_job();
+        Task<MyTypeData> task = take_new_job();
 	do_job(task);       
 	}
     }

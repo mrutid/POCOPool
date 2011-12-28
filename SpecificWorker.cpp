@@ -7,8 +7,8 @@
 
 #include "SpecificWorker.h"
 
-template <class MyTask>
-void SpecificWorker<MyTask>::do_job(MyTask task){
+template <class MyTypeData>
+void SpecificWorker<MyTypeData>::do_job(Task<MyTypeData> task){
 	Poco::Thread *th = Poco::Thread::current();
 	int id = th->id();
 	std::cout << "\nTHREAD ID::";

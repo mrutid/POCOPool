@@ -8,12 +8,12 @@
 #ifndef SPECIFICWORKER_H
 #define	SPECIFICWORKER_H
 #include "Worker.cpp";
-template <class MyTask>
-class SpecificWorker: public Worker<MyTask>{
+template <class MyTypeData>
+class SpecificWorker: public Worker<MyTypeData>{
 public:
-    SpecificWorker(Pool<MyTask>& pool):Worker<MyTask>(pool){};
+    SpecificWorker(Pool<MyTypeData>& pool):Worker<MyTypeData>(pool){};
     //overrride do_job method
-    void do_job(MyTask task);
+    void do_job(Task<MyTypeData> task);
 private:
 
 };

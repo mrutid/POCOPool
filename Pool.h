@@ -17,18 +17,18 @@
 #include <deque>
 #include "Task.h"
 
-template <class MyTask>
+template <class MyTypeData>
 class Pool{
 public:
         Pool(){};
         Pool(const Pool& o) {}; 
-        MyTask pop(); 
-        void push(MyTask);
+        Task<MyTypeData> pop(); 
+        void push(Task<MyTypeData>);
         bool empty();
 
 private:
       Poco::Mutex mux;
-      std::deque<MyTask> qeue;
+      std::deque<Task <MyTypeData> > qeue;
 };
 
 #endif

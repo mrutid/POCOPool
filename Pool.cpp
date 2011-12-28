@@ -12,9 +12,9 @@
 #include <ostream>
 #include <sstream>
 
-template <class MyTask>
-MyTask Pool<MyTask>::pop() {
-    MyTask taskPopped;
+template <class MyTypeData>
+Task<MyTypeData> Pool<MyTypeData>::pop() {
+    Task<MyTypeData> taskPopped;
     mux.lock();
     if (!qeue.empty()) {
         taskPopped = qeue.front();
@@ -24,15 +24,15 @@ MyTask Pool<MyTask>::pop() {
     return taskPopped;
 };
 
-template <class MyTask>
-void Pool<MyTask>::push(MyTask task) {
+template <class MyTypeData>
+void Pool<MyTypeData>::push(Task<MyTypeData> task) {
     mux.lock();
     qeue.push_front(task);
     mux.unlock();
 };
 
-template <class MyTask>
-bool Pool<MyTask>::empty() {
+template <class MyTypeData>
+bool Pool<MyTypeData>::empty() {
     bool r = qeue.empty();
     return r;
 };

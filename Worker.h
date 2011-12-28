@@ -16,15 +16,15 @@
 #include <ostream>
 #include <sstream>
 
-template <class MyTask>
+template <class MyTypeData>
 class Worker: public Poco::Runnable { 
 public: 
-	Worker(Pool<MyTask>& pool):job_pool(pool){}; 
+	Worker(Pool<MyTypeData>& pool):job_pool(pool){}; 
 	void run();
 private:
-	Pool<MyTask>& job_pool;
-	MyTask take_new_job();
-	virtual void do_job(MyTask)=0;	
+	Pool<MyTypeData>& job_pool;
+	Task<MyTypeData> take_new_job();
+	virtual void do_job(Task<MyTypeData>)=0;	
 };
 
 #endif

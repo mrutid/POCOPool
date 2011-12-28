@@ -16,7 +16,8 @@ using namespace std;
 int main(int argc, char** argv) {
     //create some Task
     Task<int> tasks[N_TASK];
-    Pool<Task<int> > pool;
+    //me gustaria no especializar a <typeDate>
+    Pool<int> pool;
   
     for (int i=0;i<N_TASK; i++){
         tasks[i].set_data(i);
@@ -25,7 +26,7 @@ int main(int argc, char** argv) {
     }
     
     //Create some workers
-SpecificWorker<Task <int> > wk (pool);
+SpecificWorker<int> wk (pool);
 
 Poco::Thread thread[N_THREADS];
 for(int i=0;i<N_THREADS;i++)
